@@ -7,7 +7,7 @@
 
 import SwiftUI
 import HealthKit
-
+import TerraiOS
 
 public struct SwiftUIView: View {
     
@@ -33,7 +33,7 @@ public struct SwiftUIView: View {
             Button {
                 showWebView.toggle()
             } label: {
-                Text("AppCoda")
+                Text("Simple Webview")
             }
             .sheet(isPresented: $showWebView) {
                 StepsSDKWebView(url: URL(string: "https://www.appcoda.com")!)

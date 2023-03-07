@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/tryterra/TerraiOS.git", from : "1.3.0")
+        .package(url: "https://github.com/tryterra/TerraiOS.git", from : "1.3.4")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -22,7 +22,7 @@ let package = Package(
         
         .target(
             name: "StepSDK",
-            path: "Sources",
+            dependencies: ["TerraiOS"], path: "Sources",
             resources: [.process("StepsMedia.xcassets")]),
 
 //        .testTarget(
