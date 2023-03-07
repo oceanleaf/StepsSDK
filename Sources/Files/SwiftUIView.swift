@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import HealthKit
+
 
 public struct SwiftUIView: View {
-    public init(){}
+    public init(){
+        
+       // Terra.setUpBackgroundDelivery()
+    }
     public var body: some View {
     
         VStack{
@@ -25,7 +30,6 @@ public struct SwiftUIView: View {
         }
             .frame(width: 300, height: 60, alignment: .bottom)
             .foregroundColor(.orange)
-            .colo
   
         }
     }
