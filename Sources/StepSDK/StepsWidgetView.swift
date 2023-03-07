@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
+public class StepsWidgetView: UIView {
+    
 
-public class StepsWidget: UIView {
-    
-    
     
 }
