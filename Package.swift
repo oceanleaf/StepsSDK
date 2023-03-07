@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "StepSDK",
+    platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -21,13 +22,25 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "StepSDK",
-            dependencies: [
-//                .process("text.txt"),
+            resources: [.process("StepsSDK.xcassets")]),
 //                .process("example.png"),
 //                .copy("settings.plist")
-            ]),
+            //]),
         .testTarget(
             name: "StepSDKTests",
             dependencies: ["StepSDK"]),
+        
+        
+//            .binaryTarget(
+//                    name: "StepSDK",
+//                    url: "/Users/jenswikholm/Desktop/package.zip",
+//                    checksum: "The checksum of the XCFramework inside the ZIP archive."
+//                ),
+//                .binaryTarget(
+//                    name: "SomeLocalBinaryPackage",
+//                    path: "path/to/some.xcframework"
+//                )
+        
+        
     ]
 )
