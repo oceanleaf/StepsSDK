@@ -16,7 +16,7 @@ public struct SwiftUIView: View {
     
     public init(){
         
-       // Terra.setUpBackgroundDelivery()
+        Terra.setUpBackgroundDelivery()
     }
     public var body: some View {
     
@@ -40,10 +40,38 @@ public struct SwiftUIView: View {
             }
             .frame(width: 300, height: 60, alignment: .center)
             .foregroundColor(.orange)
+            
+            
+        ////
+            
+
+            
+            Button {
+                let storyboard = UIStoryboard(name: "onboardingWelcome", bundle: nil)
+                storyboard.instantiateViewController(withIdentifier: "onboarding")
+            
+            } label: {
+                Text("Onboard")
+            }
+            
+            .frame(width: 300, height: 60, alignment: .center)
+            .foregroundColor(.blue)
+            
+            //clicked(self)
   
         }
     }
     
+    
+    func clicked(_ sender: UIButton){
+   //     let swiftUIView = SwiftUIView() // << Your view here.
+   //     let viewController = UIHostingController(rootView: swiftUIView)
+     //   navigationController?.pushViewController(viewController, animated: true)
+        
+        let storyboard = UIStoryboard(name: "onboardingWelcome", bundle: nil)
+        storyboard.instantiateViewController(withIdentifier: "onboarding")
+    }
+
  
  
 }
@@ -53,3 +81,13 @@ struct SwiftUIView_Previews: PreviewProvider {
         SwiftUIView()
     }
 }
+
+
+
+//public extension UIViewController{
+//
+//    static func getStoryboardVC() -> UIViewController {
+//           let storyboard = UIStoryboard(name: "onboardingWelcome"(describing: self), bundle: StepSDK) // Use Bundle.module
+//           return storyboard.instantiateInitialViewController()!
+//       }
+//}
