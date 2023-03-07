@@ -10,6 +10,10 @@ import HealthKit
 
 
 public struct SwiftUIView: View {
+    
+    
+@State private var showWebView = false
+    
     public init(){
         
        // Terra.setUpBackgroundDelivery()
@@ -24,11 +28,17 @@ public struct SwiftUIView: View {
                 .resizable()
                 .frame(width: 400, height: 380, alignment: .center)
                 .aspectRatio(contentMode: .fit)
-
-            Button("Hello") {
-                StepsSDKWebView.load()
-        }
-            .frame(width: 300, height: 60, alignment: .bottom)
+                
+            
+            Button {
+                showWebView.toggle()
+            } label: {
+                Text("AppCoda")
+            }
+            .sheet(isPresented: $showWebView) {
+                StepsSDKWebView(url: URL(string: "https://www.appcoda.com")!)
+            }
+            .frame(width: 300, height: 60, alignment: .center)
             .foregroundColor(.orange)
   
         }
