@@ -15,8 +15,8 @@ public class StepsSDKWebView: WKWebView {
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.preferences.javaScriptEnabled = true
         super.init(frame: .zero, configuration: webConfiguration)
-        self.scrollView.isScrollEnabled = false
-        self.isMultipleTouchEnabled = false
+        self.scrollView.isScrollEnabled = true
+        self.isMultipleTouchEnabled = true
     }
     
     required init?(coder: NSCoder) {

@@ -24,15 +24,17 @@ public struct SwiftUIView: View {
                 .resizable()
                 .frame(width: 400, height: 380, alignment: .center)
                 .aspectRatio(contentMode: .fit)
-           
+
             Button("Hello") {
-                print("hello")
+                StepsSDKWebView.load()
         }
             .frame(width: 300, height: 60, alignment: .bottom)
             .foregroundColor(.orange)
   
         }
     }
+    
+ 
  
 }
 
