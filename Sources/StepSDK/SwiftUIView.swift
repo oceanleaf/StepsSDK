@@ -8,12 +8,26 @@
 import SwiftUI
 
 public struct SwiftUIView: View {
-    public init() {}
+    public init(){}
     public var body: some View {
-        Text("Hello this is the Steps SDK")
-       // Image("widgetDemo")
-       // Image(uiImage: UIImage(named: "widgetDemo")!)
-        
+    
+        VStack{
+            
+            Text("Hello this is the Steps SDK")
+            
+            Image("widgetDemo", bundle: .module)
+                .resizable()
+                .frame(width: 400, height: 380, alignment: .center)
+                .aspectRatio(contentMode: .fit)
+           
+            Button("Hello") {
+                print("hello")
+        }
+            .frame(width: 300, height: 60, alignment: .bottom)
+            .foregroundColor(.orange)
+            .colo
+  
+        }
     }
  
 }

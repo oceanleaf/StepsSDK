@@ -23,10 +23,7 @@ let package = Package(
         .target(
             name: "StepSDK",
             path: "Sources",
-            resources: [.process("StepsSDK.xcassets")]),
-        
-    
-//                .process("example.png"),
+            resources: [.process("StepsMedia.xcassets")]),
 //                .copy("settings.plist")
             //]),
         .testTarget(
