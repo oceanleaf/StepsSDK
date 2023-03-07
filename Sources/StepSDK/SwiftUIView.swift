@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
-    var body: some View {
+public struct SwiftUIView: View {
+    public init() {}
+    public var body: some View {
         Text("Hello this is the Steps SDK")
        // Image("widgetDemo")
        // Image(uiImage: UIImage(named: "widgetDemo")!)
