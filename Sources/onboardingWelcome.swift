@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class onboardingWelcome : UIViewController {
+public class onboardingWelcome : UIViewController {
     
     
     

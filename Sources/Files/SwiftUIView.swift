@@ -11,6 +11,11 @@ import TerraiOS
 
 public struct SwiftUIView: View {
     
+    static func createViewController() -> onboardingWelcome {
+            let storyboard = UIStoryboard(name: "onboarding", bundle: Bundle.module)
+            return storyboard.instantiateInitialViewController() as! onboardingWelcome
+        }
+    
     
 @State private var showWebView = false
     
@@ -47,8 +52,37 @@ public struct SwiftUIView: View {
 
             
             Button {
-                let storyboard = UIStoryboard(name: "onboardingWelcome", bundle: nil)
-                storyboard.instantiateViewController(withIdentifier: "onboarding")
+                print("Hello button 2")
+                
+                let storyboard = UIStoryboard(name: "onboarding", bundle: Bundle.module)
+                storyboard.instantiateInitialViewController()
+                
+               // let swiftUIView = SwiftUIView() // << Your view here.
+//                    let viewController = UIHostingController(rootView: swiftUIView)
+//                    navigationController?.pushViewController(viewController, animated: true)
+                
+                
+                
+//                let onboardingWelcome = storyboard.instantiateInitialViewController(withIdentifier: "onboardingWelcome") as! onboardingWelcome
+//
+//                let viewController = UIHostingController(rootView: onboardingWelcome)
+//                navigationController?.pushViewController(viewController, animated: true)
+                
+//                let onboardingWelcome = SwiftUIView.createViewController()
+//
+//                onboardingWelcome.title = "hello"
+
+                
+                
+                
+//                let storyboard = UIStoryboard(name: "onboarding", bundle: Bundle.module)
+//                return storyboard.instantiateInitialViewController() as! ViewController
+//
+//
+//                let storyboard = UIStoryboard(name: "onboarding.storyboard", bundle: Bundle.module)
+//
+//                print(storyboard)
+//                storyboard.instantiateViewController(withIdentifier: "onboardingWelcome")
             
             } label: {
                 Text("Onboard")
@@ -68,7 +102,7 @@ public struct SwiftUIView: View {
    //     let viewController = UIHostingController(rootView: swiftUIView)
      //   navigationController?.pushViewController(viewController, animated: true)
         
-        let storyboard = UIStoryboard(name: "onboardingWelcome", bundle: nil)
+        let storyboard = UIStoryboard(name: "onboarding", bundle: nil)
         storyboard.instantiateViewController(withIdentifier: "onboarding")
     }
 

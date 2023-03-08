@@ -23,8 +23,17 @@ let package = Package(
         .target(
             name: "StepSDK",
             dependencies: ["TerraiOS"], path: "Sources",
-            resources: [.process("StepsMedia.xcassets")]),
+            resources: [
+                .process("StepsMedia.xcassets"),
+                .process("onboarding.storyboard")]),
+        
 
+//            .binaryTarget(
+//                        name: "SomeRemoteBinaryPackage",
+//                        url: "/Users/jenswikholm/Documents/Stepathlon\ SDK/LocalFramework/xcframework.zip",
+//                        checksum: "The checksum of the ZIP archive that contains the XCFramework."
+//                    ),
+        
 //        .testTarget(
 //            name: "StepSDKTests",
 //            dependencies: ["StepSDK"]),
