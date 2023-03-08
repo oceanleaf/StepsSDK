@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "StepSDK",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -27,12 +27,6 @@ let package = Package(
                 .process("StepsMedia.xcassets"),
                 .process("onboarding.storyboard")]),
         
-
-//            .binaryTarget(
-//                        name: "SomeRemoteBinaryPackage",
-//                        url: "/Users/jenswikholm/Documents/Stepathlon\ SDK/LocalFramework/xcframework.zip",
-//                        checksum: "The checksum of the ZIP archive that contains the XCFramework."
-//                    ),
         
 //        .testTarget(
 //            name: "StepSDKTests",

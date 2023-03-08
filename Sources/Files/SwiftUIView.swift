@@ -11,10 +11,10 @@ import TerraiOS
 
 public struct SwiftUIView: View {
     
-    static func createViewController() -> onboardingWelcome {
-            let storyboard = UIStoryboard(name: "onboarding", bundle: Bundle.module)
-            return storyboard.instantiateInitialViewController() as! onboardingWelcome
-        }
+//    static func createViewController() -> onboardingWelcome {
+//            let storyboard = UIStoryboard(name: "onboarding", bundle: Bundle.module)
+//            return storyboard.instantiateInitialViewController() as! onboardingWelcome
+//        }
     
     
 @State private var showWebView = false
