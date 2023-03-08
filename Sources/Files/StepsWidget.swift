@@ -10,7 +10,7 @@ import HealthKit
 import TerraiOS
 import UIKit
 
-public struct StepWidget: View {
+public struct StepsWidget: View {
 
     
 @State private var showWebView = false
