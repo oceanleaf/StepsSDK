@@ -12,8 +12,8 @@ import UIKit
 
 public struct StepsWidget: View {
 
-    
 @State private var showWebView = false
+@State private var showOnboarding = false
     
     public init(){
         Terra.setUpBackgroundDelivery()
@@ -42,31 +42,34 @@ public struct StepsWidget: View {
             .foregroundColor(.orange)
             .border(.orange)
             
-            NavigationLink(destination: onboarding1()) {
-                                Text("Show Detail View")
-                            }.navigationBarTitle("Navigation")
+            
+            
+            Button {
+                showOnboarding.toggle()
+            } label: {
+                Text("Onboarding Modal")
+            }
+            .sheet(isPresented: $showOnboarding) {
+                onboarding1()
+            }
+            .frame(width: 360, height: 60, alignment: .center)
+            .foregroundColor(.orange)
+            .border(.orange)
+            
+          
 
-          //  getStoryboardVC()
             
             Button {
                 print("Hello button 2")
-             //   Terra.setUpBackgroundDelivery()
-                
-//                terraClient.authenticateUser(resource: Resource, completion: @escaping (AuthenticateUserPayload) -> Void)
-
-                
-              //  createTerraInstance()
             
             } label: {
                 Text("Onboarding Storyboard")
             }
-          
-            
+
             .frame(width: 360, height: 60, alignment: .center)
             .foregroundColor(.blue)
             .border(.blue)
-            
-            //clicked(self)
+
   
         }
     }
