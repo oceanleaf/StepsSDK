@@ -10,8 +10,9 @@ import HealthKit
 import TerraiOS
 import UIKit
 
-public struct StepsWidget: View {
+public struct StepWidget: View {
 
+    
 @State private var showWebView = false
     
     public init(){
@@ -45,7 +46,7 @@ public struct StepsWidget: View {
                                 Text("Show Detail View")
                             }.navigationBarTitle("Navigation")
 
-
+          //  getStoryboardVC()
             
             Button {
                 print("Hello button 2")
@@ -89,9 +90,9 @@ public struct StepsWidget: View {
  
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct StepsWidget_Previews: PreviewProvider {
     static var previews: some View {
-        StepWidget()
+        StepsWidget()
     }
 }
 
