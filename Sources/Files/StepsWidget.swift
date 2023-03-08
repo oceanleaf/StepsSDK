@@ -16,7 +16,7 @@ public struct StepsWidget: View {
 @State private var showWebView = false
     
     public init(){
-//        Terra.setUpBackgroundDelivery()
+        Terra.setUpBackgroundDelivery()
     }
     
     public var body: some View {
@@ -50,7 +50,7 @@ public struct StepsWidget: View {
             
             Button {
                 print("Hello button 2")
-                Terra.setUpBackgroundDelivery()
+             //   Terra.setUpBackgroundDelivery()
                 
 //                terraClient.authenticateUser(resource: Resource, completion: @escaping (AuthenticateUserPayload) -> Void)
 
@@ -60,6 +60,7 @@ public struct StepsWidget: View {
             } label: {
                 Text("Onboarding Storyboard")
             }
+          
             
             .frame(width: 360, height: 60, alignment: .center)
             .foregroundColor(.blue)
