@@ -9,24 +9,30 @@ import SwiftUI
 
 struct onboarding1: View {
     var body: some View {
-        NavigationView{
-            VStack{
-                
-                Text("Hello, World!")
-                
-                    .navigationTitle("Welcome")
-                    .offset(y: -60)
-                
-                NavigationLink(destination: onboarding2(), label: { Text("Join the Race")
-                        .bold()
-                        .frame(width: 300, height: 50)
-                        .background(Color.black)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(10)
-                    
-                })
-            }
-        }
+       // WindowGroup {
+            OnboardingView()
+      //  }
+        
+//        NavigationView{
+          
+//            VStack{
+//                Color.white.ignoresSafeArea()
+//                Text("Hello, World!")
+//
+//                    .navigationTitle("Welcome")
+//                    .offset(y: -60)
+//
+//                NavigationLink(destination: onboarding2(), label: { Text("Join the Race")
+//                        .bold()
+//                        .frame(width: 300, height: 50)
+//                        .background(Color.black)
+//                        .foregroundColor(Color.white)
+//                        .cornerRadius(10)
+//
+//                })
+//            }
+//        }
+        
     }
 }
 
@@ -35,13 +41,13 @@ struct onboarding2: View {
     var body: some View {
 
             VStack{
-                
+                Color.white.ignoresSafeArea()
                 Text("Hello, World!")
                 
-                    .navigationTitle("Walking just got really fun!")
+                    .navigationTitle("Setup Steps")
                     .offset(y: -60)
                 
-                NavigationLink(destination: Text("testview"), label: { Text("Next")
+                NavigationLink(destination: Text("testview"), label: { Text("Setup")
                         .bold()
                         .frame(width: 300, height: 50)
                         .background(Color.black)
