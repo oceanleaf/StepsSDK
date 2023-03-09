@@ -12,25 +12,25 @@ import UIKit
 import BetterSafariView
 
 public struct StepsWidget: View {
-
-@State private var showWebView = false
-@State private var showOnboarding = false
-@State private var showTerra = false
-@State private var startingWebAuthenticationSession = false
+    
+    @State private var showWebView = false
+    @State private var showOnboarding = false
+    @State private var showTerra = false
+    @State private var startingWebAuthenticationSession = false
     
     public init(){
-       // Terra.setUpBackgroundDelivery()
+        //
     }
     
     public var body: some View {
-    
+        
         VStack{
             
             Image("widgetDemo", bundle: .module)
                 .resizable()
                 .frame(width: 400, height: 380, alignment: .center)
                 .aspectRatio(contentMode: .fit)
-                
+            
             
             Button {
                 print("Hello button 1")
@@ -60,35 +60,32 @@ public struct StepsWidget: View {
             .border(.orange)
             
             
-                    Button("Start WebAuthenticationSession") {
-                                    self.startingWebAuthenticationSession = true
-                                }
-                                .webAuthenticationSession(isPresented: $startingWebAuthenticationSession) {
-                                    WebAuthenticationSession(
-                                        url: URL(string: getSessionId())!,
-                                        callbackURLScheme: "tryterra"
-                                    ) { callbackURL, error in
-                                        if let callbackURL = callbackURL {
-                                            print(callbackURL.absoluteString)
-                                        }
-                                        if let error = error{
-                                            print(error)
-                                        }
-                                    }
-                                }
+            Button("Start WebAuthenticationSession") {
+                self.startingWebAuthenticationSession = true
+            }
+            .webAuthenticationSession(isPresented: $startingWebAuthenticationSession) {
+                WebAuthenticationSession(
+                    url: URL(string: getSessionId())!,
+                    callbackURLScheme: "tryterra"
+                ) { callbackURL, error in
+                    if let callbackURL = callbackURL {
+                        print(callbackURL.absoluteString)
+                    }
+                    if let error = error{
+                        print(error)
+                    }
+                }
+            }
             
             .frame(width: 360, height: 60, alignment: .center)
             .foregroundColor(.orange)
             .border(.orange)
-            
-
-            
-  
+ 
         }
     }
     
-
- 
+    
+    
     struct TerraWidgetSessionCreateResponse:Decodable{
         var status: String = String()
         var url: String = String()
@@ -132,7 +129,7 @@ public struct StepsWidget: View {
         group.wait()
         return url
     }
- 
+    
 }
 
 struct StepsWidget_Previews: PreviewProvider {

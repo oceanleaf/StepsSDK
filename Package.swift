@@ -26,8 +26,8 @@ let package = Package(
             dependencies: ["TerraiOS","BetterSafariView"], path: "Sources",
            // dependencies: ["BetterSafariView"], path: "Sources",
             resources: [
-                .process("StepsMedia.xcassets"),
-                .process("onboarding.storyboard")]),
+                //.process("onboarding.storyboard"),
+                .process("StepsMedia.xcassets")]),
         
         
 //        .testTarget(
