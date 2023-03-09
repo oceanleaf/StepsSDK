@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "StepSDK",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v15)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -15,7 +15,10 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/tryterra/TerraiOS.git", from : "1.3.4"),
-        .package(url: "https://github.com/stleamist/BetterSafariView.git", from : "2.4.1")
+        .package(url: "https://github.com/stleamist/BetterSafariView.git", from : "2.4.1"),
+      //  .package(url: "https://github.com/luispadron/UICircularProgressRing.git", from : "8.0.0"),
+
+        
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -24,7 +27,6 @@ let package = Package(
         .target(
             name: "StepSDK",
             dependencies: ["TerraiOS","BetterSafariView"], path: "Sources",
-           // dependencies: ["BetterSafariView"], path: "Sources",
             resources: [
                 //.process("onboarding.storyboard"),
                 .process("StepsMedia.xcassets")]),

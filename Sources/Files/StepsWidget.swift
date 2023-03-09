@@ -11,12 +11,12 @@ import TerraiOS
 import UIKit
 import BetterSafariView
 
+
 public struct StepsWidget: View {
     
-    @State private var showWebView = false
     @State private var showOnboarding = false
-    @State private var showTerra = false
     @State private var startingWebAuthenticationSession = false
+    @State private var progress = 0.6
     
     public init(){
         //
@@ -24,64 +24,87 @@ public struct StepsWidget: View {
     
     public var body: some View {
         
-        VStack{
-            
-            Image("widgetDemo", bundle: .module)
-                .resizable()
-                .frame(width: 400, height: 380, alignment: .center)
-                .aspectRatio(contentMode: .fit)
-            
-            
-            Button {
-                print("Hello button 1")
-                showWebView.toggle()
-            } label: {
-                Text("Simple Webview")
-            }
-            .sheet(isPresented: $showWebView) {
-                StepsSDKWebView(url: URL(string: "https://www.appcoda.com")!)
-            }
-            .frame(width: 360, height: 60, alignment: .center)
-            .foregroundColor(.orange)
-            .border(.orange)
-            
-            
-            
-            Button {
-                showOnboarding.toggle()
-            } label: {
-                Text("Onboarding Modal")
-            }
-            .sheet(isPresented: $showOnboarding) {
-                onboarding1()
-            }
-            .frame(width: 360, height: 60, alignment: .center)
-            .foregroundColor(.orange)
-            .border(.orange)
-            
-            
-            Button("Start WebAuthenticationSession") {
-                self.startingWebAuthenticationSession = true
-            }
-            .webAuthenticationSession(isPresented: $startingWebAuthenticationSession) {
-                WebAuthenticationSession(
-                    url: URL(string: getSessionId())!,
-                    callbackURLScheme: "tryterra"
-                ) { callbackURL, error in
-                    if let callbackURL = callbackURL {
-                        print(callbackURL.absoluteString)
-                    }
-                    if let error = error{
-                        print(error)
+            VStack{
+                
+                //Color.gray
+                Text("Hello SDK")
+                    .font(.headline)
+                    .padding(20)
+                  
+                
+//                Gauge(value: 76.0, in: 60.0...85.0) {
+//                    Text("ºF")
+//                } currentValueLabel: {
+//                    Text("76")
+//                } minimumValueLabel: {
+//                    Text("60")
+//                } maximumValueLabel: {
+//                    Text("85")
+//                }
+//                .gaugeStyle(
+//                    CircularGaugeStyle(tint:
+//                        Gradient(colors: [.green, .yellow, .orange, .red])))
+//
+//
+                
+//                ProgressView(value: 0.4) {
+//                    Image("coffee_template_small")
+//                        .renderingMode(.template)
+//                        .foregroundColor(.yellow)
+//                }
+//                .progressViewStyle(CircularProgressViewStyle(tint: .green))
+
+                
+//                Image("widgetDemo", bundle: .module)
+//                    .resizable()
+//                    .frame(width: 400, height: 380, alignment: .center)
+//                    .aspectRatio(contentMode: .fit)
+                
+                Button {
+                    showOnboarding.toggle()
+                } label: {
+                    Text("Onboarding Modal")
+                        .bold()
+                }
+                .sheet(isPresented: $showOnboarding) {
+                    onboarding1()
+                }
+                
+                .frame(width: 300, height: 50)
+                .background(Color.black)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
+                
+                
+                Button("Terra") {
+                    self.startingWebAuthenticationSession = true
+                }
+                .webAuthenticationSession(isPresented: $startingWebAuthenticationSession) {
+                    WebAuthenticationSession(
+                        url: URL(string: getSessionId())!,
+                        callbackURLScheme: "tryterra"
+                    ) { callbackURL, error in
+                        if let callbackURL = callbackURL {
+                            print(callbackURL.absoluteString)
+                        }
+                        if let error = error{
+                            print(error)
+                        }
                     }
                 }
+                
+                .frame(width: 300, height: 50)
+                .background(Color.black)
+                .foregroundColor(Color.white)
+                .cornerRadius(10)
+                .padding(20)
+                
             }
-            
-            .frame(width: 360, height: 60, alignment: .center)
-            .foregroundColor(.orange)
-            .border(.orange)
- 
-        }
+            .background(.white)
+            .cornerRadius(20)
+            .shadow(radius: 15)
+            .padding(30)
+        
     }
     
     
@@ -138,4 +161,6 @@ struct StepsWidget_Previews: PreviewProvider {
         StepsWidget()
     }
 }
+
+
 
