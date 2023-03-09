@@ -16,7 +16,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/tryterra/TerraiOS.git", from : "1.3.4"),
         .package(url: "https://github.com/stleamist/BetterSafariView.git", from : "2.4.1"),
-      //  .package(url: "https://github.com/luispadron/UICircularProgressRing.git", from : "8.0.0"),
+       // .package(url: "https://github.com/lionheart/ConcentricProgressRingView", from : "2.0.1"),
 
         
     ],

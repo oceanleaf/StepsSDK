@@ -14,9 +14,10 @@ import BetterSafariView
 
 public struct StepsWidget: View {
     
+   // @Binding var progress: Float = 11.0
     @State private var showOnboarding = false
     @State private var startingWebAuthenticationSession = false
-    @State private var progress = 0.6
+    
     
     public init(){
         //
@@ -26,40 +27,33 @@ public struct StepsWidget: View {
         
             VStack{
                 
-                //Color.gray
-                Text("Hello SDK")
-                    .font(.headline)
-                    .padding(20)
+                // https://www.simpleswiftguide.com/how-to-build-a-circular-progress-bar-in-swiftui/
+                
+                ZStack {
                   
-                
-//                Gauge(value: 76.0, in: 60.0...85.0) {
-//                    Text("ºF")
-//                } currentValueLabel: {
-//                    Text("76")
-//                } minimumValueLabel: {
-//                    Text("60")
-//                } maximumValueLabel: {
-//                    Text("85")
-//                }
-//                .gaugeStyle(
-//                    CircularGaugeStyle(tint:
-//                        Gradient(colors: [.green, .yellow, .orange, .red])))
-//
-//
-                
-//                ProgressView(value: 0.4) {
-//                    Image("coffee_template_small")
-//                        .renderingMode(.template)
-//                        .foregroundColor(.yellow)
-//                }
-//                .progressViewStyle(CircularProgressViewStyle(tint: .green))
+                          Circle()
+                              .stroke(lineWidth: 35.0)
+                              .opacity(0.1)
+                              .foregroundColor(Color.blue)
+                          
+                          Circle()
+                        .trim(from: 0.0, to: CGFloat(min(0.3, 0.6)))
+                              .stroke(style: StrokeStyle(lineWidth: 35.0, lineCap: .round, lineJoin: .round))
+                              .foregroundColor(Color.blue)
+                              .rotationEffect(Angle(degrees: 270.0))
+                              .animation(.easeInOut, value: 3.0)
+                    VStack{
+                        Text("GOAL")
+                        Text(String(format: "%.0f %%", min(0.5, 1.0)*100.0))
+                                  .font(.largeTitle)
+                                  .bold()
+                        Text("1323 STEPS")
+                    }
+                 
+                      }
+                .padding(60)
+                  
 
-                
-//                Image("widgetDemo", bundle: .module)
-//                    .resizable()
-//                    .frame(width: 400, height: 380, alignment: .center)
-//                    .aspectRatio(contentMode: .fit)
-                
                 Button {
                     showOnboarding.toggle()
                 } label: {
@@ -71,7 +65,7 @@ public struct StepsWidget: View {
                 }
                 
                 .frame(width: 300, height: 50)
-                .background(Color.black)
+                .background(Color.blue)
                 .foregroundColor(Color.white)
                 .cornerRadius(10)
                 
@@ -94,10 +88,10 @@ public struct StepsWidget: View {
                 }
                 
                 .frame(width: 300, height: 50)
-                .background(Color.black)
+                .background(Color.blue)
                 .foregroundColor(Color.white)
                 .cornerRadius(10)
-                .padding(20)
+                .padding(25)
                 
             }
             .background(.white)
