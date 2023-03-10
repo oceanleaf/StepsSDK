@@ -123,8 +123,8 @@ public struct StepsWidget: View {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("testingTerra", forHTTPHeaderField: "dev-id")
-        request.setValue("ussv5SAQ53a1nNTxsMr9G41zj2KUhYMk5eDU1hjG", forHTTPHeaderField: "X-API-Key")
+        request.setValue("stepathlon-dev-ZPbbm7Pqpm", forHTTPHeaderField: "dev-id")
+        request.setValue("4baf37ec8aa9e55558c77232b93874ed12affa6271916a0a012decafa26f0d57", forHTTPHeaderField: "X-API-Key")
         request.httpBody = jsonData
         print(request)
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
